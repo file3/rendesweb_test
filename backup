@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd `dirname $0` || exit 1
+PROJECT=`basename $PWD`
+echo "--- [$(date)] BACKUP $PROJECT"
+
+DATE=`date +%u`
+TARFILE=${PROJECT}_$DATE.tgz
+ZIPFILE=${PROJECT}_$DATE.zip
+
+#find -type l -exec ls -lAd {} \; | sort -k 9 >info.txt
+
+cd .. || exit 1
+tar czhf $TARFILE $PROJECT
+rm -f $ZIPFILE
+zip -qr $ZIPFILE $PROJECT
+
+cp -pu $TARFILE $HOME/ftp/career/rendesweb/${PROJECT}.tgz
+cp -pu $ZIPFILE $HOME/ftp/career/rendesweb/${PROJECT}.zip

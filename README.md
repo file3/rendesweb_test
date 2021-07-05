@@ -76,6 +76,8 @@ Improve penalty handling of Soccer Championship Simulation: currently penalty re
 
 Also in Soccer Championship Simulation, improve tiebreakers handling: currently in Group stage / Tiebreakers rules 8. and 9. and the third-placed teams tiebreakers rules 5. are not implemented rather replaced by random number generation, source: https://en.wikipedia.org/wiki/UEFA_Euro_2020#Tiebreakers and https://en.wikipedia.org/wiki/UEFA_Euro_2020#Ranking_of_third-placed_teams
 
+Also in Soccer Championship Simulation, parse and download inital data like rankings, groups directly from WIKI pages
+
 Generate fancier output i.e. front-end and debug information
 
 Add more error handling

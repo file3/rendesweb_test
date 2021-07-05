@@ -10,6 +10,8 @@ ZIPFILE=${PROJECT}_$DATE.zip
 
 #find -type l -exec ls -lAd {} \; | sort -k 9 >info.txt
 
+find -L -iname \*.csv -exec rm -f {} \;
+
 cd .. || exit 1
 tar czhf $TARFILE $PROJECT
 rm -f $ZIPFILE

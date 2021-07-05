@@ -1,4 +1,8 @@
-## Fermat Equation (https://projecteuler.net/problem=753), 2020 UEFA European Football Championship Simulation (https://en.wikipedia.org/wiki/UEFA_Euro_2020), Sunday Date Finder
+### Fermat Equation (https://projecteuler.net/problem=753)
+
+### 2020 UEFA European Football Championship Simulation (https://en.wikipedia.org/wiki/UEFA_Euro_2020)
+
+### Sunday Date Finder
 
 ## System Requirement
 
@@ -28,17 +32,19 @@ $ composer update # optional
 
 ## Running
 
-$ php www/fermat.php -l 1000 # LIMIT
+$ cd www
 
-$ php www/soccer.php -f soccer.csv # SAVE_FILE
+$ php fermat.php -l 1000 # LIMIT
 
-$ php www/sunday.php -d 2019-1-10 # START_DATE
+$ php soccer.php -f ../soccer.csv # SAVE_FILE
+
+$ php sunday.php -d 2019-1-10 # START_DATE
 
 *Or if intended to run in web-browser*
 
 $ wget -O - -q -t 1 http[s]://[www.]server[.hu|.com|...]/[dir/]fermat.php?limit=1000 # LIMIT
 
-$ wget -O - -q -t 1 http[s]://[www.]server[.hu|.com|...]/[dir/]soccer.php?save_file=soccer.csv # SAVE_FILE - directory where the save file points to must be writable
+$ wget -O - -q -t 1 http[s]://[www.]server[.hu|.com|...]/[dir/]soccer.php?save_file=writable/soccer.csv # SAVE_FILE - directory where the save file points to must be writable for the web-server
 
 $ wget -O - -q -t 1 http[s]://[www.]server[.hu|.com|...]/[dir/]sunday.php?start_date=2019-1-10 # START_DATE
 
@@ -52,6 +58,8 @@ $ wget -O - -q -t 1 http[s]://[www.]server[.hu|.com|...]/[dir/]sunday.php?start_
 
 ## Testing
 
+$ cd ..
+
 $ vendor/bin/phpunit tests/FermatTest # currently not implemented
 
 $ vendor/bin/phpunit tests/SoccerTest # currently not implemented
@@ -62,7 +70,7 @@ $ vendor/bin/phpunit tests/SundayTest # currently not implemented
 
 https://webmail.humankraft.hu/~fattila/rendesweb_test/fermat.php?limit=1000
 
-https://webmail.humankraft.hu/~fattila/rendesweb_test/soccer.php?save_file=soccer.csv
+https://webmail.humankraft.hu/~fattila/rendesweb_test/soccer.php?save_file=writable/soccer.csv
 
 https://webmail.humankraft.hu/~fattila/rendesweb_test/sunday.php?start_date=2019-1-10
 
@@ -72,12 +80,14 @@ Speed-up Fermat Equation module
 
 Improve penalty handling of Soccer Championship Simulation
 
-Generate fancier output and debug information
+Generate fancier output i.e. front-end and debug information
 
 Add more error handling
 
 Use spl_autoload_register() to load main class
 
 Add unit test cases
+
+Reduce accessing variables via $GLOBALS["VARIABLE_NAME"]
 
 Isolate some program files not residing under web-space

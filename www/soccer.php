@@ -174,16 +174,20 @@ class Soccer extends ShowFrontend
         }
 
         try {
-            echo "SAVE_FILE: ".$save_file.PHP_EOL;
-            $this->save_file_pointer = @fopen($save_file, 'w');
+            if(substr($save_file, 0, 1) == DIRECTORY_SEPARATOR) {
+                $this->save_file = realpath(dirname($save_file)).DIRECTORY_SEPARATOR.basename($save_file);
+            } else {
+                $this->save_file = realpath(getcwd()).DIRECTORY_SEPARATOR.$save_file;
+            }
+            echo "SAVE_FILE: ".$this->save_file.PHP_EOL;
+            $this->save_file_pointer = @fopen($this->save_file, 'w');
             if (!$this->save_file_pointer) {
-                throw new Exception("Cannot open file [".$save_file."]");
+                throw new Exception("Cannot open file [".$this->save_file."]");
             }
         } catch (Exception $exception) {
             echo "Caught exception: ".$exception->getMessage().PHP_EOL;
             exit(2);
         }
-        $this->save_file = $save_file;
     }
 
     private function get_team_value($team_position)
@@ -418,7 +422,7 @@ class Soccer extends ShowFrontend
     public function __destruct()
     {
         if ($this->save_file_pointer) fclose($this->save_file_pointer);
-        echo file_get_contents($this->save_file, true);
+        @readfile($this->save_file);
 
         if (!is_cli()) {
             echo "</pre>".PHP_EOL;

@@ -377,7 +377,8 @@ class Soccer extends ShowFrontend
             $match = array("rank1"         => $rank1
                          , "position1"     => $position1
                          , "team_name1"    => $value1[$rank1]["team_name"]
-                         , "rank2"         => $rank2, "position2" => $position2
+                         , "rank2"         => $rank2
+                         , "position2"     => $position2
                          , "team_name2"    => $value2[$rank2]["team_name"]
                          , "goals_for"     => $goals_for
                          , "goals_against" => $goals_against

@@ -105,6 +105,7 @@ if (is_cli()) {
         echo <<<EOD
 Usage: $command [-l LIMIT]
     -l LIMIT    Maximum generated primes (default: $limit)
+    -h          Print this help
 
 EOD;
         exit(1);

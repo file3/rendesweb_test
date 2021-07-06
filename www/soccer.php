@@ -443,6 +443,7 @@ if (is_cli()) {
         echo <<<EOD
 Usage: $command [-f SAVE_FILE]
     -f SAVE_FILE    Save to this CSV file (default: $save_file)
+    -h              Print this help
 
 EOD;
         exit(1);

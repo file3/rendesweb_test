@@ -80,6 +80,7 @@ if (is_cli()) {
         echo <<<EOD
 Usage: $command [-d START_DATE]
     -d START_DATE   Start from this date (default: $start_date)
+    -h              Print this help
 
 EOD;
         exit(1);

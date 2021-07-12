@@ -251,7 +251,7 @@ class Soccer extends ShowFrontend
                         } elseif ($goals_for_versus > $goals_against_versus) {
                             $team_versus["lost"] = $team_versus["lost"] + 1;
                         } else {
-                            $team_versus["drawn"] = $team_versus["drawn"] = 1;
+                            $team_versus["drawn"] = $team_versus["drawn"] + 1;
                         }
                         $team_versus["goals_for"] = $team_versus["goals_for"] + $goals_against_versus;
                         $team_versus["goals_against"] = $team_versus["goals_against"] + $goals_for_versus;

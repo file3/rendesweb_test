@@ -25,12 +25,12 @@ class Sunday extends ShowFrontend
 
         $this->end_date = strtotime($this->end_date["year"]."-".$this->end_date["mon"]."-1");
 
-        $st = mktime(0, 0, 0, $this->start_date["mon"], 1, $this->start_date["year"]);
+        $start_date = mktime(0, 0, 0, $this->start_date["mon"], 1, $this->start_date["year"]);
 
         if ($this->start_date["mday"] > 1) {
-            $this->start_date = strtotime('+1 month', $st);
+            $this->start_date = strtotime('+1 month', $start_date);
         } else {
-            $this->start_date = $st;
+            $this->start_date = $start_date;
         }
     }
 
@@ -40,8 +40,8 @@ class Sunday extends ShowFrontend
 
         do {
             if (DEBUG) echo date("Y-m-d", $this->start_date).PHP_EOL;
-            $gdate = getdate($this->start_date);
-            if ($gdate["wday"] == 0) {
+            $date = getdate($this->start_date);
+            if ($date["wday"] == 0) {
                 echo "FOUND: ".date("Y-m-d", $this->start_date).": Sunday".PHP_EOL;
                 $this->count++;
             }
